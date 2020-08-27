@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [];
+import { LatexPageComponent } from './latex-page/latex-page.component';
+
+const routes: Routes = [
+  { path: '', component: LatexPageComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
