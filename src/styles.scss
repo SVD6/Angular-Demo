@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+html {
+    background-color: #121212;
+    font-family: 'Rubik', sans-serif;
+}
+
+.content {
+    display: flex;
+    padding: 10vh 10vw;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }

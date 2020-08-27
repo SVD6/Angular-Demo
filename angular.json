@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "lytx-ang"
+    }
+  },
+  "defaultProject": "lytx-ang",
+  "cli": {
+    "analytics": "b65defb0-7747-4c26-87db-417578bed93d"
+  }
 }
