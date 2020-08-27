@@ -14,11 +14,13 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { MainSecretComponent } from './main-secret/main-secret.component';
 
 import { environment } from './../environments/environment';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainSecretComponent
+    MainSecretComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
