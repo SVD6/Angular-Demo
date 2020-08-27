@@ -12,7 +12,7 @@ import { GoogleSigninDirective } from './google-signin.directive';
   imports: [
     CommonModule,
     UserRoutingModule,
-    SharedModule 
+    SharedModule
   ]
 })
 export class UserModule { }
