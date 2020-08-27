@@ -15,6 +15,12 @@ const routes: Routes = [
       import ('./latex/latex.module').then(m => m.LatexModule),
     canActivate: [AuthGuard]
   },
+  {
+    path: 'latex',
+    loadChildren: () =>
+      import ('./latex/latex.module').then(m => m.LatexModule),
+    canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({

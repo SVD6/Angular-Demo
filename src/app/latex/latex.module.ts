@@ -2,13 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { LatexRoutingModule } from './latex-routing.module';
-import { EditorComponent } from './editor/editor.component';
 import { SharedModule } from '../shared/shared.module';
 import { LatexPageComponent } from './latex-page/latex-page.component';
+import { RendererComponent } from './renderer/renderer.component';
+import { LatexComponent } from './latex.component';
 
 
 @NgModule({
-  declarations: [EditorComponent, LatexPageComponent],
+  declarations: [LatexPageComponent, RendererComponent, LatexComponent],
   imports: [
     CommonModule,
     LatexRoutingModule,
