@@ -1,47 +1,70 @@
 import { Component, ViewChild, ElementRef, HostListener, Input, Output, EventEmitter, AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
 import * as MediumEditor from 'medium-editor';
+import { first, tap, map } from 'rxjs/operators';
+
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Subscription } from 'rxjs';
+import { LatexService } from './latex.service';
+import { User } from './data.model';
 
 @Component({
   selector: 'app-latex',
   templateUrl: './latex.component.html',
   styleUrls: ['./latex.component.scss']
 })
-export class LatexComponent implements AfterViewInit, OnChanges {
+export class LatexComponent implements AfterViewInit {
 
   @Input() editorModel: any;
   @Output() editorModelChange = new EventEmitter();
 
   private lastViewModel: string;
-  public outPut: string;
+  public paragraph = 'Rendered Equatuion';
+  private placeholder = 'Type your equation here:';
+  private editor: any;
 
-  editor: any;
-  @ViewChild('editable', {
-    static: true
-  }) editable: ElementRef;
+  sub: Subscription;
 
+  @ViewChild('editable', { static: true }) editable: ElementRef;
+
+  // tslint:disable-next-line: typedef
+  @HostListener('window:keyup') onKeyChange() { this.updateModel(); }
+
+  constructor(private afAuth: AngularFireAuth, private db: AngularFirestore, public latexService: LatexService) { }
 
   // tslint:disable-next-line: typedef
   ngAfterViewInit() {
     this.editor = new MediumEditor(this.editable.nativeElement);
-    this.editor.subscribe('editableInput', function(event, editable) {
-      console.log(editable.textContent);
-      this.outPut=editable.textContent;
-    });
+    this.getData();
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes[this.lastViewModel]) {
-      this.lastViewModel = this.editorModel;
-      console.log(this.lastViewModel.toString());
-    }
+  async getData() {
+    const user = await this.afAuth.currentUser;
+    const ref = await this.db;
+
+    this.db.collection<User>('users', ref =>
+      ref.where('uid', '==', user.uid)).snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data();
+        console.log(data);
+      }))
+    );
   }
 
-  updateModel(event, editable): void {
-      // const value = this.editor.getContent();
-      // this.lastViewModel = value;
-      const value = editable.textContent;
-      // this.editorModelChange.emit(value);
-      // console.log(this.lastViewModel.toString());
+  isLoggedIn() {
+    return this.afAuth.authState.pipe(first());
   }
 
+  updateModel(): void {
+      const plainText = this.editor.getContent().replace(/<[^>]*>/g, '').replace(/&nbsp;/g, '');
+      console.log(plainText);
+      this.paragraph = plainText;
+      this.updateFirebase(plainText);
+  }
+
+  // tslint:disable-next-line: typedef
+  async updateFirebase(equation: string) {
+    const user = await this.afAuth.currentUser;
+    this.db.collection('users').doc(user.uid).update({equation});
+  }
 }

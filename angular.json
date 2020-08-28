@@ -28,9 +28,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "node_modeles/medium-editor/dist/css/medium-editor.min.css",
-              "node_modules/medium-editor/dist/css/themes/default.css"
+              "src/styles.scss"
             ],
             "scripts": [
               "node_modules/medium-editor/dist/js/medium-editor.min.js"

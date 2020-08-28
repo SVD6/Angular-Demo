@@ -2,6 +2,7 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
+@import '~katex/dist/katex.css';
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -47,8 +48,6 @@ $custom_orange: (
         A700 : #000000,
     )
 );
-
-
 
 $lytx-angular-primary: mat-palette($custom_orange);
 $lytx-angular-accent: mat-palette($mat-pink, A200, A100, A400);

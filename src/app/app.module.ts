@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { KatexModule } from 'ng-katex';
 
 // App Modules
 import { AppComponent } from './app.component';
@@ -36,6 +37,7 @@ import { AboutComponent } from './about/about.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    KatexModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

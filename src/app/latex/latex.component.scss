@@ -21,10 +21,12 @@ div:focus {
     margin-bottom: 1em;
     font-size: xx-large;
     text-align: center;
+    padding-left:5em;
+    padding-right: 5em;
+    line-height: 1.6;
 }
 
-textarea {
-    border-style: none;
-    border-color: transparent;
-    overflow: auto;
+ng-katex-paragraph {
+    font-size: x-large;
+    margin-top: 5em;
 }
