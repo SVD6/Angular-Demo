@@ -31,15 +31,12 @@ const modules = [
   MatFormFieldModule,
   MatInputModule,
   MatSnackBarModule,
-  RouterModule
+  RouterModule,
 ];
 
 @NgModule({
   declarations: [...components],
   imports: [...modules],
-  exports: [
-    ...components,
-    ...modules,
-  ]
+  exports: [...components, ...modules],
 })
-export class SharedModule { }
+export class SharedModule {}

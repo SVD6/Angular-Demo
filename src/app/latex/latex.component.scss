@@ -1,32 +1,32 @@
-@import url('https://cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css');
-@import url('https://cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/themes/default.css');
+@import url("https://cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css");
+@import url("https://cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/themes/default.css");
 
 //Remove blue outline in Chrome
 div:focus {
-    outline:0;
+  outline: 0;
 }
 
 :host {
-    text-align: center;
+  text-align: center;
 }
 
 .top-margin {
-    padding: 5em;
-    margin-top: 20em;
-    margin-bottom: 5em;
+  padding: 5em;
+  margin-top: 20em;
+  margin-bottom: 5em;
 }
 
 .editor {
-    margin-top: 5em;
-    margin-bottom: 1em;
-    font-size: xx-large;
-    text-align: center;
-    padding-left:5em;
-    padding-right: 5em;
-    line-height: 1.6;
+  margin-top: 5em;
+  margin-bottom: 1em;
+  font-size: xx-large;
+  text-align: center;
+  padding-left: 5em;
+  padding-right: 5em;
+  line-height: 1.6;
 }
 
 ng-katex-paragraph {
-    font-size: x-large;
-    margin-top: 5em;
+  font-size: x-large;
+  margin-top: 5em;
 }

@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
-import { HomePageComponent } from './home-page/home-page.component';
 import { LatexComponent } from './latex/latex.component';
 
 // https://github.com/yabwe/medium-editor
@@ -24,9 +23,8 @@ import { AboutComponent } from './about/about.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent,
     LatexComponent,
-    AboutComponent
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +38,6 @@ import { AboutComponent } from './about/about.component';
     KatexModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

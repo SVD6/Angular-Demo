@@ -9,14 +9,14 @@ import { AboutComponent } from './about/about.component';
 const routes: Routes = [
   {
     path: 'login',
-    loadChildren: () => import('./user/user.module').then(m => m.UserModule)
+    loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
   },
-  { path: '', component: LatexComponent, canActivate: [AuthGuard]},
-  { path: 'about', component: AboutComponent }
+  { path: '', component: LatexComponent, canActivate: [AuthGuard] },
+  { path: 'about', component: AboutComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
