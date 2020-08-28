@@ -30,15 +30,17 @@
   
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
-        <span class="logo" routerLink="/">
-          Angular LaTeX
-        </span>
+        <span class="logo">Angular LaTeX</span>
   
         <span class="fill-space"></span>
         <div *ngIf="!(isHandset$ | async)">
-          <a mat-button routerLink="/latex">📐 LaTeX Renderer</a>
+          <a mat-button routerLink="">📐 LaTeX Renderer</a>
   
           <a mat-button routerLink="/login">🔑 Login</a>
+          <a mat-button *ngIf="afAuth.authState | async as user" >
+            <img class="avatar" [src]="user.photoURL || 'assets/default-user.svg'">
+            {{ user.displayName }}
+          </a>
   
         </div>
   
@@ -49,7 +51,7 @@
         </button>
         
         <mat-menu #menu="matMenu">
-          <a mat-menu-item href="https://fireship.page.link/slack">
+          <a mat-menu-item routerLink="/about">
             <i>😀</i>
             <span>About Me</span>
           </a>

@@ -1,0 +1,30 @@
+@import url('https://cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css');
+@import url('https://cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/themes/default.css');
+
+//Remove blue outline in Chrome
+div:focus {
+    outline:0;
+}
+
+:host {
+    text-align: center;
+}
+
+.top-margin {
+    padding: 5em;
+    margin-top: 20em;
+    margin-bottom: 5em;
+}
+
+.editor {
+    margin-top: 5em;
+    margin-bottom: 1em;
+    font-size: xx-large;
+    text-align: center;
+}
+
+textarea {
+    border-style: none;
+    border-color: transparent;
+    overflow: auto;
+}
